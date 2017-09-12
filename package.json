@@ -1,6 +1,6 @@
 {
   "name": "ng2-animate-scroll",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pure angular2 directive to trigger animations on scrolling",
   "module": "./dist/ng2-animate-scroll.js",
   "main": "./dist/bundles/ng2-animate-scroll.umd.js",
@@ -19,7 +19,7 @@
     "angular",
     "angular2",
     "scrolling",
-    "scrollimate",
+    "animate-scroll",
     "animations"
   ],
   "peerDependencies": {

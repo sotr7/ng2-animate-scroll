@@ -1,5 +1,6 @@
 import { Directive, ElementRef, Renderer, AfterViewInit, Input, Output, EventEmitter, Inject, forwardRef } from '@angular/core';
 import { AnimateScrollService } from './ng2-animate-scroll.service';
+import { AnimateBoxDirective } from './ng2-animate-box.directive';
 import { State, Options } from'./ng2-animate-scroll.interface';
 
 @Directive({
@@ -14,10 +15,16 @@ export class AnimateScrollDirective implements AfterViewInit {
 
     constructor(@Inject(forwardRef(() => ElementRef)) private el: ElementRef, 
                 @Inject(forwardRef(() => Renderer)) private renderer: Renderer, 
-                @Inject(forwardRef(() => AnimateScrollService)) private animateScrollService: AnimateScrollService) {
+                @Inject(forwardRef(() => AnimateScrollService)) private animateScrollService: AnimateScrollService,
+				@Inject(AnimateBoxDirective) private animateBox: AnimateBoxDirective) {
         //add listeneres for scroll and resize
-        this.renderer.listenGlobal('window', 'scroll', (evt: Event) => { this._processEvent(); });
-        this.renderer.listenGlobal('window', 'resize', (evt: Event) => { this._processEvent(); });
+		if(this.animateBox && this.animateBox.element){
+			this.renderer.listen(this.animateBox.element.nativeElement, 'scroll', (evt: Event) => { this._processEvent(); });
+			this.renderer.listen(this.animateBox.element.nativeElement, 'resize', (evt: Event) => { this._processEvent(); });
+		} else {
+			this.renderer.listenGlobal('window', 'scroll', (evt: Event) => { this._processEvent(); });
+			this.renderer.listenGlobal('window', 'resize', (evt: Event) => { this._processEvent(); });			
+		}
     }
     ngAfterViewInit(): void {
           setTimeout(() => {
