@@ -1,0 +1,56 @@
+{
+  "name": "ng2-animate-scroll",
+  "version": "0.0.1",
+  "description": "Pure angular2 directive to trigger animations on scrolling",
+  "module": "./dist/ng2-animate-scroll.js",
+  "main": "./dist/bundles/ng2-animate-scroll.umd.js",
+  "typings": "./dist/ng2-animate-scroll.d.ts",
+    "scripts": {
+    "transpile": "ngc",
+    "package": "rollup -c",
+    "minify": "uglifyjs dist/bundles/ng2-animate-scroll.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/ng2-animate-scroll.umd.min.js",
+    "build": "npm run transpile && npm run package && npm run minify"
+  },
+  "author": {
+    "name": "Oleg Yagovtsev",
+    "email": "oleg.yagovtsev@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "angular2",
+    "scrolling",
+    "scrollimate",
+    "animations"
+  ],
+  "peerDependencies": {
+    "@angular/core": "^2.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^2.4.8",
+    "@angular/compiler": "^2.4.8",
+    "@angular/compiler-cli": "^2.4.8",
+    "@angular/core": "^2.4.8",
+    "@angular/platform-browser": "^2.4.8",
+    "@angular/platform-browser-dynamic": "^2.4.8",
+    "codelyzer": "2.0.1",
+    "@types/node": "^7.0.5",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.3",
+    "rollup": "^0.41.4",
+    "rxjs": "^5.0.0-beta.6",
+    "tslint": "^4.4.2",
+    "typescript": "^2.1.6",
+    "typings": "^2.1.0",
+    "uglify-js": "^2.7.5",
+    "zone.js": "^0.7.7"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sotr7/ng2-animate-scroll.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sotr7/ng2-animate-scroll/issues"
+  },
+  "homepage": "https://github.com/sotr7/ng2-animate-scroll#readme"
+}
